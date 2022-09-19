@@ -2,22 +2,22 @@
   "name": "goit-js-hw-10",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://rsasbeih.github.io/goit-js-hw-10-countries/",
+  "homepage": "https://rsasbeih.github.io/goit-js-hw-10/",
   "scripts": {
     "start": "parcel src/*.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-10-countries/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-10/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://rsasbeih.github.io/goit-js-hw-10-countries.git"
+    "url": "git+https://rsasbeih.github.io/goit-js-hw-10.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://rsasbeih.github.io/goit-js-hw-10-countries/issues"
+    "url": "https://rsasbeih.github.io/goit-js-hw-10/issues"
   },
   "dependencies": {
     "@vimeo/player": "^2.17.1",

@@ -10,17 +10,17 @@ fetchCountries.addEventListener('input', debounce(onInputChange, DEBOUNCE_DELAY)
 
 function onInputChange() {
         fetchCountriesAPI(fetchCountries.value.trim())
-                .then((countries) => renderCountryList(countries))
-                .catch((error) => console.log(error));
+                .then((countries) => renderCountryList(countries)).catch(noMatches);
 }
 
 function fetchCountriesAPI(name) {
+        if (name == "")
+                return;
         return fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`).then(
                 (response) => {
                         if (!response.ok) {
-                                Notiflix.Notify.failure('Oops, there is no country with that name');
                                 countryList.innerHTML = '';
-                                throw new Error(response.status);
+                                throw Error(response.statusText);
                         }
                         return response.json();
                 }
@@ -58,4 +58,9 @@ function renderCountryList(countries) {
         else {
                 countryList.innerHTML = '';
         }
+}
+function noMatches(error) {
+        console.log(error);
+        Notiflix.Notify.failure('Oops, there is no country with that name');
+        countryList.innerHTML = '';
 }
