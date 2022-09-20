@@ -9,6 +9,10 @@ const countryList = document.querySelector(".country-list");
 fetchCountries.addEventListener('input', debounce(onInputChange, DEBOUNCE_DELAY));
 
 function onInputChange() {
+        countryList.innerHTML = '';
+        if (fetchCountries.value.trim() == '') {
+                return;
+        }
         fetchCountriesAPI(fetchCountries.value.trim())
                 .then((countries) => renderCountryList(countries)).catch(noMatches);
 }
